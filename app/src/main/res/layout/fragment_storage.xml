@@ -5,10 +5,202 @@
     android:layout_height="match_parent"
     tools:context=".StorageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment Storage" />
+        android:background="@color/black">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mustard"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:id="@+id/ram_Info"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:text="RAM INFO"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/view"
+            android:layout_below="@+id/ram_Info"
+            android:layout_marginTop="10dp"
+            android:background="@color/mustard" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:id="@+id/linear"
+            android:gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_below="@+id/view">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total RAM"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ram_total"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Available RAM"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ram_avail"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Available Percentage"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ram_avail_percentage"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/view1"
+            android:layout_below="@+id/linear"
+            android:layout_marginTop="10dp"
+            android:background="@color/mustard" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/mustard"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:id="@+id/storage_Info"
+            android:layout_below="@+id/view1"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:text="Storage INFO"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/view4"
+            android:layout_below="@+id/storage_Info"
+            android:layout_marginTop="10dp"
+            android:background="@color/mustard" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:id="@+id/linear1"
+            android:gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_below="@+id/view4">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total Storage"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/storage_total"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Available Storage"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/storage_avail"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Available Percentage"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/storage_avail_percentage"
+                    android:textSize="20sp"
+                    android:textColor="@color/mustard"/>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/view3"
+            android:layout_below="@+id/linear1"
+            android:layout_marginTop="10dp"
+            android:background="@color/mustard" />
+    </RelativeLayout>
 
 </FrameLayout>

@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -59,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
         dLayout.closeDrawers(); // close the all open Drawer Views
     }
 
-    public void ClickCPU(View view){
+    public void ClickCPUUsage(View view){
         Fragment frag = null;
-        frag = new CPUFragment();
+        frag = new CPUUsageFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
         transaction.commit(); // commit the changes
@@ -102,6 +103,21 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
         transaction.commit(); // commit the changes
         dLayout.closeDrawers(); // close the all open Drawer Views
+    }
+
+    public void ClickShareApp(View view){
+//        try {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
+            String shareMessage= "";
+            shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+            startActivity(Intent.createChooser(shareIntent, "choose one"));
+//        } catch(Exception e) {
+//            System.out.println("Inside catch");
+//            //e.toString();
+//        }
     }
 
 }
