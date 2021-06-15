@@ -1,4 +1,4 @@
-package com.example.deviceinfo;
+package com.example.deviceinfo.Fragments;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.deviceinfo.R;
+
 public class BatteryFragment extends Fragment {
 
     TextView healthTv;
@@ -26,10 +28,10 @@ public class BatteryFragment extends Fragment {
     TextView tempTv;
     TextView voltageTv;
     TextView capacityTv;
+
     public BatteryFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -113,7 +115,7 @@ public class BatteryFragment extends Fragment {
                 healthTv.setText("" + getString(healthLbl));
             }
 
-            // Calculate Battery Pourcentage ...
+            // Calculate Battery Percentage ...
             int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
             int scale = intent.getIntExtra(BatteryManager.EXTRA_SCALE, -1);
 

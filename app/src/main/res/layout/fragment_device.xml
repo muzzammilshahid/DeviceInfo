@@ -3,23 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DeviceFragment">
+    tools:context=".Fragments.DeviceFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/black">
+        android:background="@color/black"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/about_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:gravity="center"
             android:padding="15dp"
             android:text="About Phone"
             android:textColor="@color/mustard"
-            android:gravity="center"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -37,15 +37,15 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
+                android:layout_weight="1"
                 android:paddingVertical="10dp"
                 android:text="Device name: "
-                android:textSize="15sp"
                 android:textColor="@color/mustard"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -56,29 +56,28 @@
                 android:layout_marginVertical="5dp"
                 android:layout_marginEnd="7dp"
                 android:layout_marginRight="7dp"
-                android:gravity="right"
-                android:textSize="15sp"
-                android:textColor="@color/mustard"/>
+                android:textColor="@color/mustard"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
+                android:layout_weight="1"
                 android:paddingVertical="10dp"
-                android:textSize="15sp"
-                android:textColor="@color/mustard"
                 android:text="Manufacturer: "
+                android:textColor="@color/mustard"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -89,29 +88,28 @@
                 android:layout_marginVertical="5dp"
                 android:layout_marginEnd="7dp"
                 android:layout_marginRight="7dp"
-                android:gravity="right"
-                android:textSize="15sp"
-                android:textColor="@color/mustard"/>
+                android:textColor="@color/mustard"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
+                android:layout_weight="1"
                 android:paddingVertical="10dp"
                 android:text="Model: "
-                android:textSize="15sp"
                 android:textColor="@color/mustard"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -122,60 +120,29 @@
                 android:layout_marginVertical="5dp"
                 android:layout_marginEnd="7dp"
                 android:layout_marginRight="7dp"
-                android:gravity="right"
-                android:textSize="15sp"
-                android:textColor="@color/mustard"/>
+                android:textColor="@color/mustard"
+                android:textSize="15sp" />
         </LinearLayout>
-
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginHorizontal="5dp"-->
-        <!--            android:orientation="horizontal">-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="110dp"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:layout_marginStart="15dp"-->
-        <!--                android:layout_marginLeft="15dp"-->
-        <!--                android:paddingVertical="10dp"-->
-        <!--                android:text="IMEI number: "-->
-        <!--                android:textColor="@color/Violet"-->
-        <!--                android:textStyle="bold" />-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/imei_number"-->
-        <!--                android:layout_width="match_parent"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:layout_marginVertical="5dp"-->
-        <!--                android:layout_marginEnd="7dp"-->
-        <!--                android:layout_marginRight="7dp"-->
-        <!--                android:gravity="right"-->
-        <!--                android:text="IMEI number"-->
-        <!--                android:textColor="@color/Violet" />-->
-        <!--        </LinearLayout>-->
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
+                android:layout_weight="1"
                 android:paddingVertical="10dp"
                 android:text="Android Version: "
-                android:textSize="15sp"
                 android:textColor="@color/mustard"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -186,29 +153,28 @@
                 android:layout_marginVertical="5dp"
                 android:layout_marginEnd="7dp"
                 android:layout_marginRight="7dp"
-                android:gravity="right"
-                android:textSize="15sp"
-                android:textColor="@color/mustard"/>
+                android:textColor="@color/mustard"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
+                android:layout_weight="1"
                 android:paddingVertical="10dp"
                 android:text="Build Number: "
-                android:textSize="15sp"
                 android:textColor="@color/mustard"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -219,30 +185,29 @@
                 android:layout_marginVertical="5dp"
                 android:layout_marginEnd="7dp"
                 android:layout_marginRight="7dp"
-                android:gravity="right"
                 android:text=""
-                android:textSize="15sp"
-                android:textColor="@color/mustard"/>
+                android:textColor="@color/mustard"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
+                android:layout_weight="1"
                 android:paddingVertical="10dp"
                 android:text="CPU: "
-                android:textSize="15sp"
                 android:textColor="@color/mustard"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -253,38 +218,14 @@
                 android:layout_marginVertical="5dp"
                 android:layout_marginEnd="7dp"
                 android:layout_marginRight="7dp"
-                android:gravity="right"
-                android:textSize="15sp"
-                android:textColor="@color/mustard"/>
+                android:textColor="@color/mustard"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/mustard" />
-        <!--    <TextView-->
-        <!--        android:id="@+id/sim_numbers"-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:padding="15dp"-->
-        <!--        android:text="Sim Details"-->
-        <!--        android:textColor="@color/black"-->
-        <!--        android:textSize="17sp"-->
-        <!--        android:textStyle="bold"/>-->
-        <!--    <View-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="1dp"-->
-        <!--        android:background="@color/black"/>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/share_app"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:padding="15dp"-->
-<!--            android:text="Share App"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="17sp"-->
-<!--            android:textStyle="bold" />-->
     </LinearLayout>
 
 </FrameLayout>

@@ -15,4 +15,13 @@
     <string name="battery_status_discharging">Discharging</string>
     <string name="battery_status_charging">Charging</string>
     <string name="battery_status_full">Battery Full</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="network">Network</string>
+    <string name="device">Device</string>
+    <string name="storage">Storage</string>
+    <string name="cpu_usage">CPU Usage</string>
+    <string name="battery">Battery</string>
+    <string name="apps">User Apps</string>
+    <string name="background_apps">System Apps</string>
+    <string name="Display">Display</string>
 </resources>

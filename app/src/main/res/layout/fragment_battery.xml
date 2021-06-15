@@ -4,16 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".BatteryFragment">
+    tools:context=".Fragments.BatteryFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
@@ -32,20 +31,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/linear"
                 android:background="@color/mustard" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingHorizontal="20dp"
                     android:paddingVertical="7dp"
                     android:text="Health"
                     android:textColor="@color/mustard"
@@ -53,10 +51,9 @@
 
                 <TextView
                     android:id="@+id/tv_health"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:padding="7dp"
                     android:textColor="@color/mustard"
@@ -66,20 +63,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/linear"
                 android:background="@color/mustard" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingHorizontal="20dp"
                     android:paddingVertical="7dp"
                     android:text="Battery %"
                     android:textColor="@color/mustard"
@@ -87,10 +83,9 @@
 
                 <TextView
                     android:id="@+id/tv_percentage"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:padding="7dp"
                     android:textColor="@color/mustard"
@@ -100,20 +95,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/linear"
                 android:background="@color/mustard" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingHorizontal="20dp"
                     android:paddingVertical="7dp"
                     android:text="Plugged"
                     android:textColor="@color/mustard"
@@ -121,9 +115,8 @@
 
                 <TextView
                     android:id="@+id/tv_plugged"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:padding="7dp"
                     android:textColor="@color/mustard"
@@ -133,20 +126,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/linear"
                 android:background="@color/mustard" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingHorizontal="20dp"
                     android:paddingVertical="7dp"
                     android:text="Charging Status"
                     android:textColor="@color/mustard"
@@ -154,9 +146,8 @@
 
                 <TextView
                     android:id="@+id/tv_charging_status"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:padding="7dp"
                     android:textColor="@color/mustard"
@@ -166,20 +157,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/linear"
                 android:background="@color/mustard" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingHorizontal="20dp"
                     android:paddingVertical="7dp"
                     android:text="Technology"
                     android:textColor="@color/mustard"
@@ -187,9 +177,8 @@
 
                 <TextView
                     android:id="@+id/tv_technology"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:padding="7dp"
                     android:textColor="@color/mustard"
@@ -199,20 +188,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/linear"
                 android:background="@color/mustard" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingHorizontal="20dp"
                     android:paddingVertical="7dp"
                     android:text="Temperature"
                     android:textColor="@color/mustard"
@@ -220,9 +208,8 @@
 
                 <TextView
                     android:id="@+id/tv_temperature"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:padding="7dp"
                     android:textColor="@color/mustard"
@@ -232,20 +219,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/linear"
                 android:background="@color/mustard" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingHorizontal="20dp"
                     android:paddingVertical="7dp"
                     android:text="Voltage"
                     android:textColor="@color/mustard"
@@ -253,9 +239,8 @@
 
                 <TextView
                     android:id="@+id/tv_voltage"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:padding="7dp"
                     android:textColor="@color/mustard"
@@ -265,20 +250,19 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/linear"
                 android:background="@color/mustard" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingHorizontal="20dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:paddingHorizontal="20dp"
                     android:paddingVertical="7dp"
                     android:text="Capacity"
                     android:textColor="@color/mustard"
@@ -286,9 +270,8 @@
 
                 <TextView
                     android:id="@+id/tv_capacity"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:padding="7dp"
                     android:textColor="@color/mustard"
@@ -299,7 +282,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@+id/linear"
                 android:background="@color/mustard" />
         </LinearLayout>
     </ScrollView>

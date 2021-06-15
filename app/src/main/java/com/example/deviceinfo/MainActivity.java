@@ -1,123 +1,110 @@
 package com.example.deviceinfo;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
+import com.example.deviceinfo.databinding.ActivityMainBinding;
+import com.example.deviceinfo.ui.main.SectionsPagerAdapter;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    DrawerLayout dLayout;
+    private ActivityMainBinding binding;
+
+    public static ArrayList<AppInfo> list = new ArrayList<>();
+    public static ArrayList<AppInfo> list1 = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        dLayout = findViewById(R.id.drawer_layout);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        Fragment frag = null;
-        frag = new NetworkFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
-        transaction.commit(); // commit the changes
-        dLayout.closeDrawers(); // close the all open Drawer Views
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
+        ViewPager viewPager = binding.viewPager;
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = binding.tabs;
+        tabs.setupWithViewPager(viewPager);
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                list = getUserApps();
+
+                list1 = getSystemApps();
+            }
+        };
+        thread.start();
+
     }
 
-    public void ClickMenu(View view){
-        dLayout.openDrawer(GravityCompat.START);
+    public ArrayList<AppInfo> getUserApps() {
+
+        PackageManager pm = getPackageManager();
+        List<ApplicationInfo> installedApps = pm.getInstalledApplications(0);
+        for (ApplicationInfo aInfo : installedApps) {
+
+            if ((aInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                // System apps
+            } else {
+                // Users apps
+                AppInfo appInfo = new AppInfo();
+                appInfo.setAppName(aInfo.loadLabel(pm).toString());
+                appInfo.setPackageName(aInfo.packageName);
+                try {
+                    PackageInfo info = pm.getPackageInfo(aInfo.packageName, 0);
+                    appInfo.setVersionName(info.versionName);
+                    appInfo.setVersionCode(info.versionCode);
+                    appInfo.setAppName(info.applicationInfo.loadLabel(getPackageManager()).toString());
+                    appInfo.setIcon(info.applicationInfo.loadIcon(getPackageManager()));
+                    list.add(appInfo);
+                } catch (Exception e) {
+                    Log.e("ERROR", "we could not get the user's apps");
+                }
+
+            }
+        }
+        return list;
     }
 
-    public void ClickNetwork(View view){
-        Fragment frag = null;
-        frag = new NetworkFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
-        transaction.commit(); // commit the changes
-        dLayout.closeDrawers(); // close the all open Drawer Views
-    }
+    public ArrayList<AppInfo> getSystemApps() {
 
-    public void ClickDevice(View view){
-        Fragment frag = null;
-        frag = new DeviceFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
-        transaction.commit(); // commit the changes
-        dLayout.closeDrawers(); // close the all open Drawer Views
-    }
+        PackageManager pm = getPackageManager();
+        List<ApplicationInfo> installedApps = pm.getInstalledApplications(0);
+        for (ApplicationInfo aInfo : installedApps) {
 
-    public void ClickStorage(View view){
-        Fragment frag = null;
-        frag = new StorageFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
-        transaction.commit(); // commit the changes
-        dLayout.closeDrawers(); // close the all open Drawer Views
-    }
+            if ((aInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                // System apps
+                AppInfo appInfo = new AppInfo();
+                appInfo.setAppName(aInfo.loadLabel(pm).toString());
+                appInfo.setPackageName(aInfo.packageName);
+                try {
+                    PackageInfo info = pm.getPackageInfo(aInfo.packageName, 0);
+                    appInfo.setVersionName(info.versionName);
+                    appInfo.setVersionCode(info.versionCode);
+                    appInfo.setAppName(info.applicationInfo.loadLabel(getPackageManager()).toString());
+                    appInfo.setIcon(info.applicationInfo.loadIcon(getPackageManager()));
+                    list1.add(appInfo);
+                } catch (Exception e) {
+                    Log.e("ERROR", "we could not get the user's apps");
+                }
+            } else {
+                // Users apps
 
-    public void ClickCPUUsage(View view){
-        Fragment frag = null;
-        frag = new CPUUsageFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
-        transaction.commit(); // commit the changes
-        dLayout.closeDrawers(); // close the all open Drawer Views
-    }
 
-    public void ClickBattery(View view){
-        Fragment frag = null;
-        frag = new BatteryFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
-        transaction.commit(); // commit the changes
-        dLayout.closeDrawers(); // close the all open Drawer Views
+            }
+        }
+        return list1;
     }
-
-    public void ClickApps(View view){
-        Fragment frag = null;
-        frag = new AppFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
-        transaction.commit(); // commit the changes
-        dLayout.closeDrawers(); // close the all open Drawer Views
-    }
-
-    public void ClickBackgroundApps(View view){
-        Fragment frag = null;
-        frag = new BackgroundFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
-        transaction.commit(); // commit the changes
-        dLayout.closeDrawers(); // close the all open Drawer Views
-    }
-
-    public void ClickDisplay(View view){
-        Fragment frag = null;
-        frag = new DisplayFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, frag); // replace a Fragment with Frame Layout
-        transaction.commit(); // commit the changes
-        dLayout.closeDrawers(); // close the all open Drawer Views
-    }
-
-    public void ClickShareApp(View view){
-//        try {
-            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
-            String shareMessage= "";
-            shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
-            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-            startActivity(Intent.createChooser(shareIntent, "choose one"));
-//        } catch(Exception e) {
-//            System.out.println("Inside catch");
-//            //e.toString();
-//        }
-    }
-
 }

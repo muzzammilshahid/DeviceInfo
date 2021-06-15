@@ -3,199 +3,208 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CPUUsageFragment"
-    android:background="@color/black">
+    android:background="@color/black"
+    tools:context=".Fragments.CPUUsageFragment">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
     <RelativeLayout
-        android:id="@+id/cpuTempLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:text="N/A"
-            android:id="@+id/tv_cpu_temp"
-            android:textColor="@color/mustard"
-            android:textSize="120sp"
+        <RelativeLayout
+            android:id="@+id/cpuTempLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:id="@+id/tv_cpu_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:text="N/A"
+                android:textAlignment="center"
+                android:textColor="@color/mustard"
+                android:textSize="120sp" />
+
+            <TextView
+                android:id="@+id/tv_cpu_temp_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="180dp"
+                android:text="CPU Temperature (°C)"
+                android:textColor="@color/mustard"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/cpuTempLayout"
+            android:layout_marginTop="60dp"
+            android:background="@color/mustard" />
+
+        <RelativeLayout
+            android:id="@+id/maxFreq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cpuTempLayout"
             android:layout_centerHorizontal="true"
-            android:textAlignment="center"
-            android:gravity="center_horizontal" />
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="54dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/cpuMaxFreq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="26dp"
+                android:text="CPU Max Frequency:"
+                android:textColor="@color/mustard"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_maxFreq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/cpuMaxFreq"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="maxFreq"
+                android:textColor="@color/mustard"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/maxFreq"
+            android:layout_marginTop="21dp"
+            android:background="@color/mustard" />
+
+        <RelativeLayout
+            android:id="@+id/freqLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="CPU Temperature (°C)"
-            android:id="@+id/tv_cpu_temp_label"
-            android:textColor="@color/mustard"
-            android:textSize="20sp"
-            android:layout_marginTop="180dp"
-            android:layout_centerHorizontal="true" />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/cpuTempLayout"
-        android:layout_marginTop="60dp"
-        android:background="@color/mustard"/>
-
-    <RelativeLayout
-        android:id="@+id/maxFreq"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
-        android:layout_below="@+id/cpuTempLayout"
-        android:layout_marginHorizontal="15dp"
-        android:layout_centerHorizontal="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CPU Max Frequency:"
-            android:id="@+id/cpuMaxFreq"
-            android:layout_marginTop="26dp"
-            android:textColor="@color/mustard"
-            android:layout_alignParentStart="true"
-            android:textSize="20sp"
-            android:layout_alignParentLeft="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="maxFreq"
-            android:id="@+id/tv_maxFreq"
-            android:textColor="@color/mustard"
-            android:layout_alignTop="@+id/cpuMaxFreq"
+            android:layout_below="@+id/maxFreq"
             android:layout_alignParentEnd="true"
-            android:textSize="20sp"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="42dp">
 
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/core0label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Core 1:"
+                    android:textColor="@color/Purple"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/core0freq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="N/A"
+                    android:textColor="@color/Purple"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/core1label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Core 2:"
+                    android:textColor="@color/PineGreen"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/core1freq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="N/A"
+                    android:textColor="@color/PineGreen"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/core2label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Core 3:"
+                    android:textColor="@color/Red"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/core2freq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="N/A"
+                    android:textColor="@color/Red"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linear2"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/core3label"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Core 4:"
+                    android:textColor="@color/PaleGreen"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/core3freq"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="N/A"
+                    android:textColor="@color/PaleGreen"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/freqLayout"
+            android:layout_marginTop="21dp"
+            android:background="@color/mustard" />
     </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/maxFreq"
-        android:layout_marginTop="21dp"
-        android:background="@color/mustard"/>
-
-    <RelativeLayout
-        android:id="@+id/freqLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:layout_marginHorizontal="15dp"
-        android:layout_below="@+id/maxFreq"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/linear">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Core 1:"
-                android:id="@+id/core0label"
-                android:textColor="@color/Purple"
-                android:textSize="20sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="N/A"
-                android:id="@+id/core0freq"
-                android:textColor="@color/Purple"
-                android:textSize="20sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/linear1"
-            android:layout_below="@+id/linear">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Core 2:"
-                android:layout_weight="1"
-                android:id="@+id/core1label"
-                android:textColor="@color/PineGreen"
-                android:textSize="20sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="N/A"
-                android:id="@+id/core1freq"
-                android:textColor="@color/PineGreen"
-                android:textSize="20sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@+id/linear1"
-            android:id="@+id/linear2">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Core 3:"
-                android:id="@+id/core2label"
-                android:textColor="@color/Red"
-                android:textSize="20sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="N/A"
-                android:id="@+id/core2freq"
-                android:textColor="@color/Red"
-                android:textSize="20sp"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/linear3"
-            android:layout_below="@+id/linear2">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Core 4:"
-                android:id="@+id/core3label"
-                android:textColor="@color/PaleGreen"
-                android:textSize="20sp" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="N/A"
-                android:id="@+id/core3freq"
-                android:textColor="@color/PaleGreen"
-                android:textSize="20sp" />
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/freqLayout"
-        android:layout_marginTop="21dp"
-        android:background="@color/mustard"/>
-</RelativeLayout>
 </FrameLayout>

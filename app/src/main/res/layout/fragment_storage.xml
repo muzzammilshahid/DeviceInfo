@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StorageFragment">
+    tools:context=".Fragments.StorageFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -11,193 +11,226 @@
         android:background="@color/black">
 
         <TextView
+            android:id="@+id/ram_Info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/mustard"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:id="@+id/ram_Info"
-            android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
-            android:text="RAM INFO"/>
+            android:layout_marginTop="15dp"
+            android:text="RAM INFO"
+            android:textColor="@color/mustard"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <View
+            android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:id="@+id/view"
             android:layout_below="@+id/ram_Info"
             android:layout_marginTop="10dp"
             android:background="@color/mustard" />
 
         <LinearLayout
+            android:id="@+id/linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:id="@+id/linear"
-            android:gravity="center"
+            android:layout_below="@+id/view"
             android:layout_marginHorizontal="10dp"
-            android:layout_below="@+id/view">
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Total RAM"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/ram_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ram_total"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Available RAM"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/ram_avail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ram_avail"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Available Percentage"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:text="Used Percentage"
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/ram_avail_percentage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/ram_avail_percentage"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
             </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="45"
+                android:progressTint="@color/mustard" />
         </LinearLayout>
+
         <View
+            android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:id="@+id/view1"
             android:layout_below="@+id/linear"
             android:layout_marginTop="10dp"
             android:background="@color/mustard" />
+
         <TextView
+            android:id="@+id/storage_Info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/mustard"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:id="@+id/storage_Info"
             android:layout_below="@+id/view1"
-            android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
-            android:text="Storage INFO"/>
+            android:layout_marginTop="15dp"
+            android:text="Storage INFO"
+            android:textColor="@color/mustard"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <View
+            android:id="@+id/view4"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:id="@+id/view4"
             android:layout_below="@+id/storage_Info"
             android:layout_marginTop="10dp"
             android:background="@color/mustard" />
 
         <LinearLayout
+            android:id="@+id/linear1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:id="@+id/linear1"
-            android:gravity="center"
+            android:layout_below="@+id/view4"
             android:layout_marginHorizontal="10dp"
-            android:layout_below="@+id/view4">
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Total Storage"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/storage_total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/storage_total"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Available Storage"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/storage_avail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/storage_avail"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Available Percentage"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:text="Used Percentage"
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/storage_avail_percentage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/storage_avail_percentage"
-                    android:textSize="20sp"
-                    android:textColor="@color/mustard"/>
+                    android:textColor="@color/mustard"
+                    android:textSize="20sp" />
             </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progress1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="45"
+                android:progressTint="@color/mustard" />
         </LinearLayout>
+
         <View
+            android:id="@+id/view3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:id="@+id/view3"
             android:layout_below="@+id/linear1"
             android:layout_marginTop="10dp"
             android:background="@color/mustard" />

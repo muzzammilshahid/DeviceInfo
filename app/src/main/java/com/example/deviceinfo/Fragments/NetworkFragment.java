@@ -1,4 +1,4 @@
-package com.example.deviceinfo;
+package com.example.deviceinfo.Fragments;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.deviceinfo.R;
 
 public class NetworkFragment extends Fragment {
 
@@ -50,9 +52,6 @@ public class NetworkFragment extends Fragment {
         connMgr = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
 
 
-
-
-
         mStartRX = TrafficStats.getTotalRxBytes();
         mStartTX = TrafficStats.getTotalTxBytes();
         if (mStartRX == TrafficStats.UNSUPPORTED || mStartTX == TrafficStats.UNSUPPORTED) {
@@ -80,16 +79,16 @@ public class NetworkFragment extends Fragment {
 
     private final Runnable mRunnable = new Runnable() {
         public void run() {
-            long rxBytes = TrafficStats.getTotalRxBytes()- mStartRX;
+            long rxBytes = TrafficStats.getTotalRxBytes() - mStartRX;
 
-            long txBytes = TrafficStats.getTotalTxBytes()- mStartTX;
+            long txBytes = TrafficStats.getTotalTxBytes() - mStartTX;
 
 
-            if (isOnline()){
-                transmitByteTextView.setText(""+rxBytes);
-                receivedByteTextView.setText(""+txBytes);
+            if (isOnline()) {
+                transmitByteTextView.setText("" + rxBytes);
+                receivedByteTextView.setText("" + txBytes);
                 isOnlineTextView.setText("Yes");
-                if (getNetworkType().equals("WIFI")){
+                if (getNetworkType().equals("WIFI")) {
                     wifiTextView.setText("ON");
                     mobileDataTextView.setText("OFF");
                 } else {

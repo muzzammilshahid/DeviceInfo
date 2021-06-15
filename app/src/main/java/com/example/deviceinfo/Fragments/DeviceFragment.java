@@ -1,4 +1,4 @@
-package com.example.deviceinfo;
+package com.example.deviceinfo.Fragments;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.deviceinfo.R;
 
 
 public class DeviceFragment extends Fragment {

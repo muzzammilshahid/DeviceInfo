@@ -1,4 +1,4 @@
-package com.example.deviceinfo;
+package com.example.deviceinfo.Fragments;
 
 import android.annotation.SuppressLint;
 import android.hardware.Sensor;
@@ -13,6 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.deviceinfo.MainActivity;
+import com.example.deviceinfo.R;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +37,7 @@ public class CPUUsageFragment extends Fragment {
     String[] maxFreq = {"/system/bin/cat", "/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_max_freq"};
 
 
-    String[] sensorFiles = new String[] {
+    String[] sensorFiles = new String[]{
             "/sys/devices/system/cpu/cpu0/cpufreq/cpu_temp",
             "/sys/devices/system/cpu/cpu0/cpufreq/FakeShmoo_cpu_temp",
             "/sys/class/thermal/thermal_zone1/temp",
@@ -60,7 +63,6 @@ public class CPUUsageFragment extends Fragment {
     Pattern pat = Pattern.compile(pattern);
 
 
-
     int foo = 0;
 
 
@@ -84,8 +86,8 @@ public class CPUUsageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_cpu_usage, container, false);
         SensorManager mSensorManager = (SensorManager) getActivity().getSystemService(SENSOR_SERVICE);
         Sensor TempSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
-        mSensorManager.registerListener(temperatureSensor,TempSensor,SensorManager.SENSOR_DELAY_NORMAL);
-
+        mSensorManager.registerListener(temperatureSensor, TempSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        keepReading = true;
 
         final TextView tv_core0 = view.findViewById(R.id.core0freq);
         final TextView tv_core1 = view.findViewById(R.id.core1freq);
@@ -115,32 +117,30 @@ public class CPUUsageFragment extends Fragment {
                         mainActivity.runOnUiThread(() -> {
 
                             if (cpu0file.exists()) {
-                                tv_core0.setText(formatCPUFreq(ReadCPU0(cpu0))+ " MHz");
+                                tv_core0.setText(formatCPUFreq(ReadCPU0(cpu0)) + " MHz");
                             } else {
                                 tv_core0.setText("Offline");
                             }
 
                             if (cpu1file.exists()) {
                                 //tv_cpu2file.setText("Yes");
-                                tv_core1.setText(formatCPUFreq(ReadCPU0(cpu1))+ " MHz");
+                                tv_core1.setText(formatCPUFreq(ReadCPU0(cpu1)) + " MHz");
                             } else {
                                 //tv_cpu2file.setText("No");
                                 tv_core1.setText("Offline");
                             }
 
                             if (cpu2file.exists()) {
-                                tv_core2.setText(formatCPUFreq(ReadCPU0(cpu2))+ " MHz");
+                                tv_core2.setText(formatCPUFreq(ReadCPU0(cpu2)) + " MHz");
                             } else {
                                 tv_core2.setText("Offline");
                             }
 
                             if (cpu3file.exists()) {
-                                tv_core3.setText(formatCPUFreq(ReadCPU0(cpu3))+ " MHz");
+                                tv_core3.setText(formatCPUFreq(ReadCPU0(cpu3)) + " MHz");
                             } else {
                                 tv_core3.setText("Offline");
                             }
-
-
 
 
                             File correctSensorFile = null;
@@ -148,50 +148,22 @@ public class CPUUsageFragment extends Fragment {
                                 File f = new File(file);
                                 if (f.exists()) {
                                     correctSensorFile = f;
-                                    System.out.println("millo  "+correctSensorFile);
+                                    System.out.println("millo  " + correctSensorFile);
                                     break;
                                 }
                             }
 
                             RandomAccessFile reader = null;
                             try {
-                                reader = new RandomAccessFile(correctSensorFile , "r");
+                                reader = new RandomAccessFile(correctSensorFile, "r");
                                 String value = reader.readLine();
                                 float temp = Float.parseFloat(value);
                                 temp = temp / 1000.0f;
-                                tv_cputemp.setText(""+temp);
+                                tv_cputemp.setText("" + temp);
                                 foo = Integer.parseInt(String.valueOf(temp));
-                                if (foo < 40) {
-                                    tv_cputemp.setTextColor(R.color.Blue);
-                                }
-
-                                if (foo > 40 && foo < 50) {
-                                    tv_cputemp.setTextColor(R.color.Yellow);
-                                }
-                                if (foo > 50 && foo < 60) {
-                                    tv_cputemp.setTextColor(R.color.Brown);
-                                }
-                                if (foo > 60) {
-                                    tv_cputemp.setTextColor(R.color.Red);
-                                }
-                                System.out.println("millo "+ temp);
                                 reader.close();
                             } catch (Exception e) {
                                 e.printStackTrace();
-                            }
-
-                            if (foo < 40) {
-                                tv_cputemp.setTextColor(R.color.Blue);
-                            }
-
-                            if (foo > 40 && foo < 50) {
-                                tv_cputemp.setTextColor(R.color.Yellow);
-                            }
-                            if (foo > 50 && foo < 60) {
-                                tv_cputemp.setTextColor(R.color.Brown);
-                            }
-                            if (foo > 60) {
-                                tv_cputemp.setTextColor(R.color.Red);
                             }
 
                         });
@@ -208,32 +180,31 @@ public class CPUUsageFragment extends Fragment {
     }
 
 
-    private String ReadCPU0(String[] input)
-    {
+    private String ReadCPU0(String[] input) {
         ProcessBuilder pB;
         String result = "";
 
-        try{
+        try {
             String[] args = {"/system/bin/cat", "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq"};
             pB = new ProcessBuilder(input);
             pB.redirectErrorStream(false);
             Process process = pB.start();
             InputStream in = process.getInputStream();
             byte[] re = new byte[1024];
-            while(in.read(re) != -1) //default -1
+            while (in.read(re) != -1) //default -1
             {
                 //System.out.println(new String(re));
                 result = new String(re);
             }
             in.close();
-        } catch(IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
-        System.out.println("millis "+ result);
+        System.out.println("millis " + result);
         return result;
     }
 
-    private String formatCPUFreq (String cpuFreq) {
+    private String formatCPUFreq(String cpuFreq) {
 
         String uwot = "";
         Matcher m = pat.matcher(cpuFreq);
@@ -261,14 +232,19 @@ public class CPUUsageFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        keepReading = false;
+//        keepReading = false;
     }
 
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        keepReading = true;
+    }
 
     public void onStop() {
         super.onStop();
-        //keepReading = false;      //don't disable otherwise stops reading after going to sleep
+        keepReading = false;      //don't disable otherwise stops reading after going to sleep
     }
 
     public void onResume() {
