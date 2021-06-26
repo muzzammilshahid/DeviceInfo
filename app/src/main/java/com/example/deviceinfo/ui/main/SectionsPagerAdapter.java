@@ -9,7 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.deviceinfo.Fragments.AppFragment;
-import com.example.deviceinfo.Fragments.BackgroundFragment;
+import com.example.deviceinfo.Fragments.HomeFragment;
+import com.example.deviceinfo.Fragments.SystemAppFragment;
 import com.example.deviceinfo.Fragments.BatteryFragment;
 import com.example.deviceinfo.Fragments.CPUUsageFragment;
 import com.example.deviceinfo.Fragments.DeviceFragment;
@@ -21,8 +22,10 @@ import com.example.deviceinfo.Fragments.StorageFragment;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.network, R.string.device,
-            R.string.storage, R.string.cpu_usage, R.string.battery, R.string.apps, R.string.background_apps, R.string.Display};
+    private static final int[] TAB_TITLES = new int[]{R.string.home,R.string.network, R.string.Display,
+            R.string.battery,R.string.apps, R.string.background_apps, R.string.cpu_usage,
+            R.string.storage
+            , R.string.device};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -35,28 +38,31 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new NetworkFragment();
+                fragment = new HomeFragment();
                 break;
             case 1:
-                fragment = new DeviceFragment();
+                fragment = new NetworkFragment();
                 break;
             case 2:
-                fragment = new StorageFragment();
+                fragment = new DisplayFragment();
                 break;
             case 3:
-                fragment = new CPUUsageFragment();
-                break;
-            case 4:
                 fragment = new BatteryFragment();
                 break;
-            case 5:
+            case 4:
                 fragment = new AppFragment();
                 break;
+            case 5:
+                fragment = new SystemAppFragment();
+                break;
             case 6:
-                fragment = new BackgroundFragment();
+                fragment = new CPUUsageFragment();
                 break;
             case 7:
-                fragment = new DisplayFragment();
+                fragment = new StorageFragment();
+                break;
+            case 8:
+                fragment = new DeviceFragment();
                 break;
         }
         return fragment;
@@ -70,7 +76,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
-        return 8;
+        return 9;
     }
 }

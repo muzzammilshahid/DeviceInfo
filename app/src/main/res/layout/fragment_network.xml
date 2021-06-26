@@ -3,157 +3,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/white"
     tools:context=".Fragments.NetworkFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="20dp"
-            android:text="Network Information"
-            android:textColor="@color/mustard"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/text"
-            android:background="@color/mustard" />
-
         <LinearLayout
             android:id="@+id/linear"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:padding="15dp"
+            android:orientation="vertical"
+            android:background="@color/blue">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="7dp"
+                android:layout_gravity="center"
                 android:text="isOnline"
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:paddingHorizontal="20dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/is_online"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="7dp"
+                android:layout_gravity="center"
                 android:text=""
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/linear"
-            android:background="@color/mustard" />
 
         <LinearLayout
             android:id="@+id/linear1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linear"
-            android:layout_marginTop="15dp"
-            android:background="@color/black"
-            android:orientation="horizontal">
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/brown"
+            android:padding="15dp"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="7dp"
                 android:text="WIFI"
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:paddingHorizontal="23dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/wifi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="7dp"
                 android:text=""
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/linear1"
-            android:background="@color/mustard" />
+
 
         <LinearLayout
             android:id="@+id/linear3"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linear1"
-            android:layout_marginTop="15dp"
-            android:background="@color/black"
-            android:orientation="horizontal">
+            android:layout_marginTop="30dp"
+            android:padding="15dp"
+            android:layout_centerHorizontal="true"
+            android:background="@color/yellow"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="7dp"
                 android:text="Mobile Data"
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/mobile_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="7dp"
+                android:layout_gravity="center"
                 android:text=""
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/linear3"
-            android:background="@color/mustard" />
 
         <LinearLayout
             android:id="@+id/linear4"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linear3"
-            android:layout_marginTop="15dp"
-            android:background="@color/black"
-            android:orientation="horizontal">
+            android:layout_marginTop="30dp"
+            android:background="@color/blue"
+            android:layout_centerInParent="true"
+            android:padding="15dp"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="7dp"
                 android:text="Transmit Byte"
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/transmit"
@@ -162,51 +127,44 @@
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="7dp"
                 android:text=""
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/linear4"
-            android:background="@color/mustard" />
 
         <LinearLayout
             android:id="@+id/linear5"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linear4"
-            android:layout_marginTop="15dp"
-            android:background="@color/black"
-            android:orientation="horizontal">
+            android:layout_marginTop="30dp"
+            android:background="@color/red"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="7dp"
+                android:layout_gravity="center"
                 android:text="Received Byte"
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/received"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="20dp"
+                android:layout_gravity="center"
                 android:paddingVertical="7dp"
                 android:text=""
-                android:textColor="@color/mustard"
-                android:textSize="20sp" />
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/linear5"
-            android:background="@color/mustard" />
     </RelativeLayout>
 
 </FrameLayout>

@@ -16,6 +16,7 @@
     <string name="battery_status_charging">Charging</string>
     <string name="battery_status_full">Battery Full</string>
     <string name="title_activity_main2">MainActivity2</string>
+    <string name="home">Home</string>
     <string name="network">Network</string>
     <string name="device">Device</string>
     <string name="storage">Storage</string>

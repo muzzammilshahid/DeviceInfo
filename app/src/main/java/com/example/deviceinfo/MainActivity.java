@@ -1,12 +1,18 @@
 package com.example.deviceinfo;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.deviceinfo.databinding.ActivityMainBinding;
@@ -23,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<AppInfo> list = new ArrayList<>();
     public static ArrayList<AppInfo> list1 = new ArrayList<>();
 
+    private ImageView imageView;
+
+    private DrawerLayout dLayout;
+    private TabLayout tabs;
+
+    private ProgressDialog progressDialog;
+    private ProgressDialog progressDialog1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,13 +47,36 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
         viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = binding.tabs;
+        tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
+
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog1 = new ProgressDialog(this);
+
+        //Setting Dialog Title
+        progressDialog.setTitle("loading...");
+        progressDialog1.setTitle("loading...");
+
+        //Setting Dialog Message
+        progressDialog.setMessage("Getting Information from android...");
+        progressDialog1.setMessage("Getting Information from android...");
+
+        progressDialog.show();
+        progressDialog1.show();
+        progressDialog.setCancelable(false);
+        progressDialog1.setCancelable(false);
+        imageView = findViewById(R.id.imageView);
+        dLayout = findViewById(R.id.drawerLayout);
+        imageView.setOnClickListener(v -> {
+            dLayout.openDrawer(GravityCompat.START);
+        });
 
         Thread thread = new Thread() {
             @Override
             public void run() {
                 super.run();
+
                 list = getUserApps();
 
                 list1 = getSystemApps();
@@ -75,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
+        progressDialog1.dismiss();
         return list;
     }
 
@@ -105,6 +143,65 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
+        progressDialog.dismiss();
         return list1;
+    }
+
+    public void ClickHome(View view){
+        tabs.getTabAt(0).select();
+        dLayout.closeDrawers(); // close the all open Drawer Views
+    }
+
+    public void ClickDevice(View view){
+        tabs.getTabAt(1).select();
+        dLayout.closeDrawers(); // close the all open Drawer Views
+    }
+
+//    public void ClickStorage(View view){
+//        tabs.getTabAt(2).select();
+//        dLayout.closeDrawers(); // close the all open Drawer Views
+//    }
+//
+//    public void ClickCPU(View view){
+//        tabs.getTabAt(3).select();
+//        dLayout.closeDrawers(); // close the all open Drawer Views
+//    }
+//
+//    public void ClickBattery(View view){
+//        tabs.getTabAt(4).select();
+//        dLayout.closeDrawers(); // close the all open Drawer Views
+//    }
+
+    public void ClickApps(View view){
+        tabs.getTabAt(4).select();
+        dLayout.closeDrawers(); // close the all open Drawer Views
+    }
+
+//    public void ClickSystemApps(View view){
+//        tabs.getTabAt(6).select();
+//        dLayout.closeDrawers(); // close the all open Drawer Views
+//    }
+//
+//    public void ClickDisplay(View view){
+//        tabs.getTabAt(7).select();
+//        dLayout.closeDrawers(); // close the all open Drawer Views
+//    }
+
+    public void ClickShareApp(View view){
+        try {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
+            String shareMessage= "";
+            
+            shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+            startActivity(Intent.createChooser(shareIntent, "choose one"));
+            dLayout.closeDrawers(); // close the all open Drawer Views
+        } catch(Exception e) {
+            System.out.println("Inside catch");
+            dLayout.closeDrawers(); // close the all open Drawer Views
+            //e.toString();
+        }
     }
 }

@@ -42,11 +42,7 @@ public class DisplayFragment extends Fragment {
         densityDpi = view.findViewById(R.id.density_dpi);
         xdpi = view.findViewById(R.id.xdpi);
         ydpi = view.findViewById(R.id.ydpi);
-        String displayResolution = getResources().getDisplayMetrics().widthPixels + "x" + getResources().getDisplayMetrics().heightPixels;
-        System.out.println("here is screen " + displayResolution + "    Density Dpi   " + getResources().getDisplayMetrics().densityDpi +
-                "  Scaled Density  " + getResources().getDisplayMetrics().scaledDensity +
-                " xdpi  " + getResources().getDisplayMetrics().xdpi + " ydpi   "
-                + getResources().getDisplayMetrics().ydpi);
+
         width.setText("" + getResources().getDisplayMetrics().widthPixels);
         height.setText("" + getResources().getDisplayMetrics().heightPixels);
         scaledDensity.setText(getResources().getDisplayMetrics().scaledDensity + "");

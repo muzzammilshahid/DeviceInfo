@@ -18,4 +18,10 @@
     <color name="Blue">#0d93cd</color>
     <color name="PineGreen">#00aaa3</color>
     <color name="Violet">#8783bd</color>
+    <color name="brown">#964B00</color>
+    <color name="statusBar">#8B4513</color>
+
+    <color name="blue">#00BFFF</color>
+    <color name="yellow">#FFCC33</color>
+    <color name="red">#8B0000</color>
 </resources>

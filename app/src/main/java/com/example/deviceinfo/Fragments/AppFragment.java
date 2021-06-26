@@ -1,10 +1,14 @@
 package com.example.deviceinfo.Fragments;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
@@ -50,6 +54,15 @@ public class AppFragment extends Fragment {
         appAdapter = new AppAdapter(getActivity(), list);
         appNameListView.setAdapter(appAdapter);
         appAdapter.notifyDataSetChanged();
+
+
+        appNameListView.setOnItemClickListener((parent, view1, position, id) -> {
+            AppInfo appInfo = list.get(position);
+            Intent intent1 = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            Uri uri = Uri.fromParts("package",appInfo.getPackageName() , null);
+            intent1.setData(uri);
+            startActivity(intent1);
+        });
 
         return view;
     }
