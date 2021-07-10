@@ -22,8 +22,8 @@ import com.example.deviceinfo.Fragments.StorageFragment;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.home,R.string.network, R.string.Display,
-            R.string.battery,R.string.apps, R.string.background_apps, R.string.cpu_usage,
+    private static final int[] TAB_TITLES = new int[]{R.string.home, R.string.network, R.string.Display,
+            R.string.battery, R.string.apps, R.string.background_apps, R.string.cpu_usage,
             R.string.storage
             , R.string.device};
     private final Context mContext;

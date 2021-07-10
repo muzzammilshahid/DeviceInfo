@@ -1,88 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
     tools:context=".Fragments.HomeFragment">
 
     <LinearLayout
         android:id="@+id/linear"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linear1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:background="@color/blue"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:layout_marginTop="15dp"
+        android:background="@color/black"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="7dp"
             android:text="IP Address"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textColor="@color/mustard"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/ip_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="7dp"
+            android:text=""
+            android:textColor="@color/mustard"
+            android:textSize="20sp" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mustard" />
 
     <LinearLayout
         android:id="@+id/linear1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/red"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:layout_marginTop="15dp"
+        android:background="@color/black"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="7dp"
             android:text="Used after Reboot"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textColor="@color/mustard"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/hours_used"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="7dp"
+            android:text=""
+            android:textColor="@color/mustard"
+            android:textSize="20sp" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mustard" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linear1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:background="@color/yellow"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="15dp">
+        android:layout_marginTop="15dp"
+        android:background="@color/black"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="7dp"
             android:text="Device Id"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:textColor="@color/mustard"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/device_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="7dp"
+            android:text=""
+            android:textColor="@color/mustard"
+            android:textSize="20sp" />
     </LinearLayout>
-</RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mustard" />
+</LinearLayout>

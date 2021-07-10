@@ -44,11 +44,11 @@ public class HomeFragment extends Fragment {
         WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         String ip = Formatter.formatIpAddress(wm.getConnectionInfo().getIpAddress());
 
-        long timeUsed =  android.os.SystemClock.elapsedRealtime()/(1000*60*60);
+        long timeUsed = android.os.SystemClock.elapsedRealtime() / (1000 * 60 * 60);
 
 
         textViewIpAddress.setText(ip);
-        textViewHoursUsed.setText(timeUsed+ " hours");
+        textViewHoursUsed.setText(timeUsed + " hours");
         textViewDeviceId.setText(Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID));
         return view;
     }
