@@ -1,4 +1,4 @@
-package com.example.deviceinfo.ui.main;
+package com.deskconn.deviceinfo.ui.main;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

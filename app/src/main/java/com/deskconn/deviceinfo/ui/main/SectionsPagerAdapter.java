@@ -1,4 +1,4 @@
-package com.example.deviceinfo.ui.main;
+package com.deskconn.deviceinfo.ui.main;
 
 import android.content.Context;
 
@@ -8,16 +8,16 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.deviceinfo.Fragments.AppFragment;
-import com.example.deviceinfo.Fragments.HomeFragment;
-import com.example.deviceinfo.Fragments.SystemAppFragment;
-import com.example.deviceinfo.Fragments.BatteryFragment;
-import com.example.deviceinfo.Fragments.CPUUsageFragment;
-import com.example.deviceinfo.Fragments.DeviceFragment;
-import com.example.deviceinfo.Fragments.DisplayFragment;
-import com.example.deviceinfo.Fragments.NetworkFragment;
-import com.example.deviceinfo.R;
-import com.example.deviceinfo.Fragments.StorageFragment;
+import com.deskconn.deviceinfo.Fragments.AppFragment;
+import com.deskconn.deviceinfo.Fragments.BatteryFragment;
+import com.deskconn.deviceinfo.Fragments.CPUUsageFragment;
+import com.deskconn.deviceinfo.Fragments.DeviceFragment;
+import com.deskconn.deviceinfo.Fragments.DisplayFragment;
+import com.deskconn.deviceinfo.Fragments.HomeFragment;
+import com.deskconn.deviceinfo.Fragments.NetworkFragment;
+import com.deskconn.deviceinfo.Fragments.StorageFragment;
+import com.deskconn.deviceinfo.Fragments.SystemAppFragment;
+import com.deskconn.deviceinfo.R;
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 

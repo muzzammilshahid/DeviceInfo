@@ -1,4 +1,4 @@
-package com.example.deviceinfo.Fragments;
+package com.deskconn.deviceinfo.Fragments;
 
 import android.annotation.SuppressLint;
 import android.hardware.Sensor;
@@ -14,8 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.deviceinfo.MainActivity;
-import com.example.deviceinfo.R;
+import com.deskconn.deviceinfo.MainActivity;
+import com.deskconn.deviceinfo.R;
 
 import java.io.File;
 import java.io.IOException;

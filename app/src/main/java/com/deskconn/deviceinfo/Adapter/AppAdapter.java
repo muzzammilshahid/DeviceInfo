@@ -1,5 +1,6 @@
-package com.example.deviceinfo.Adapter;
+package com.deskconn.deviceinfo.Adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.util.Log;
 import android.view.View;
@@ -11,15 +12,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.deviceinfo.AppInfo;
-import com.example.deviceinfo.R;
+import com.deskconn.deviceinfo.AppInfo;
+import com.deskconn.deviceinfo.R;
 
 import java.util.ArrayList;
 
 public class AppAdapter extends ArrayAdapter<String> {
 
-    private ArrayList<AppInfo> list;
-    private Activity context;
+    private final ArrayList<AppInfo> list;
+    private final Activity context;
 
     public AppAdapter(Activity context, ArrayList<AppInfo> list) {
         super(context.getApplicationContext(), R.layout.listview_apps);
@@ -28,6 +29,7 @@ public class AppAdapter extends ArrayAdapter<String> {
         this.list = list;
     }
 
+    @SuppressLint("SetTextI18n")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -70,7 +72,7 @@ public class AppAdapter extends ArrayAdapter<String> {
         return list.get(position).getAppName();
     }
 
-    class ViewHolder {
+    static class ViewHolder {
         TextView textViewName;
         TextView textViewPackage;
         TextView textViewVersionName;

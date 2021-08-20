@@ -1,4 +1,4 @@
-package com.example.deviceinfo;
+package com.deskconn.deviceinfo;
 
 import android.graphics.drawable.Drawable;
 

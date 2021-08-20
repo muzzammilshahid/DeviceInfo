@@ -1,4 +1,4 @@
-package com.example.deviceinfo.Fragments;
+package com.deskconn.deviceinfo.Fragments;
 
 import android.app.ActivityManager;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.deviceinfo.R;
+import com.deskconn.deviceinfo.R;
 
 import static android.content.Context.ACTIVITY_SERVICE;
 

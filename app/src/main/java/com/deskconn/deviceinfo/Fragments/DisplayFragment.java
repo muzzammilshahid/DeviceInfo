@@ -1,4 +1,4 @@
-package com.example.deviceinfo.Fragments;
+package com.deskconn.deviceinfo.Fragments;
 
 import android.os.Bundle;
 
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.deviceinfo.R;
+import com.deskconn.deviceinfo.R;
 
 public class DisplayFragment extends Fragment {
 

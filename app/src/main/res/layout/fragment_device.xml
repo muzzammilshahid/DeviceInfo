@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.DeviceFragment">
+    tools:context="com.deskconn.deviceinfo.Fragments.DeviceFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,22 +11,22 @@
         android:background="@color/black"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/about_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:padding="15dp"
-            android:text="About Phone"
-            android:textColor="@color/mustard"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+<!--        <TextView-->
+<!--            android:id="@+id/about_phone"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:gravity="center"-->
+<!--            android:padding="15dp"-->
+<!--            android:text="About Phone"-->
+<!--            android:textColor="@color/mustard"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textStyle="bold" />-->
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/mustard" />
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="@color/mustard" />-->
 
         <LinearLayout
             android:layout_width="match_parent"

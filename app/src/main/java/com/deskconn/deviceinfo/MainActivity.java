@@ -1,4 +1,4 @@
-package com.example.deviceinfo;
+package com.deskconn.deviceinfo;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,9 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.deviceinfo.databinding.ActivityMainBinding;
-import com.example.deviceinfo.ui.main.SectionsPagerAdapter;
+import com.deskconn.deviceinfo.ui.main.SectionsPagerAdapter;
+import com.deskconn.deviceinfo.R;
+import com.deskconn.deviceinfo.databinding.ActivityMainBinding;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

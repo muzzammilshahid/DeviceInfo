@@ -1,4 +1,4 @@
-package com.example.deviceinfo.Fragments;
+package com.deskconn.deviceinfo.Fragments;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.deviceinfo.R;
+import com.deskconn.deviceinfo.R;
 
 public class BatteryFragment extends Fragment {
 

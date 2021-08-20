@@ -1,4 +1,4 @@
-package com.example.deviceinfo.ui.main;
+package com.deskconn.deviceinfo.ui.main;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.deviceinfo.databinding.FragmentMainBinding;
+import com.deskconn.deviceinfo.databinding.FragmentMainBinding;
 
 public class PlaceholderFragment extends Fragment {
 
