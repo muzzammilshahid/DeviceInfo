@@ -13,6 +13,10 @@ import android.widget.TextView;
 
 import com.deskconn.deviceinfo.R;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 
 public class DeviceFragment extends Fragment {
     TextView deviceName;
@@ -21,6 +25,10 @@ public class DeviceFragment extends Fragment {
     TextView androidVersion;
     TextView buildNumber;
     TextView cpu;
+    TextView securityPatchLevel;
+    TextView basebandVersion;
+    TextView kernelVersion;
+    TextView resolution;
 
     public DeviceFragment() {
         // Required empty public constructor
@@ -42,7 +50,12 @@ public class DeviceFragment extends Fragment {
         androidVersion = view.findViewById(R.id.android_version);
         buildNumber = view.findViewById(R.id.build_number);
         cpu = view.findViewById(R.id.cpu);
-        deviceName.setText(Settings.Secure.getString(getActivity().getContentResolver(), "bluetooth_name"));
+        resolution = view.findViewById(R.id.resolution);
+        securityPatchLevel = view.findViewById(R.id.security_patch_level);
+        basebandVersion = view.findViewById(R.id.baseband_version);
+        kernelVersion = view.findViewById(R.id.kernel_version);
+
+        deviceName.setText(Settings.Secure.getString(requireActivity().getContentResolver(), "bluetooth_name"));
 
         manufacturer.setText(Build.MANUFACTURER);
 
@@ -54,7 +67,35 @@ public class DeviceFragment extends Fragment {
 
         buildNumber.setText(Build.DISPLAY);
 
+        resolution.setText(getResources().getDisplayMetrics().heightPixels + " x " + getResources().getDisplayMetrics().widthPixels);
 
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            securityPatchLevel.setText(Build.VERSION.SECURITY_PATCH.trim());
+        }
+
+        basebandVersion.setText(Build.getRadioVersion().trim());
+
+        kernelVersion.setText(getKernelVersion());
         return view;
     }
+
+    public static String getKernelVersion() {
+        try {
+            Process p = Runtime.getRuntime().exec("uname -a");
+            InputStream is;
+            if (p.waitFor() == 0) {
+                is = p.getInputStream();
+            } else {
+                is = p.getErrorStream();
+            }
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            String line = br.readLine();
+            br.close();
+            return line;
+        } catch (Exception ex) {
+            return "ERROR: " + ex.getMessage();
+        }
+    }
+
 }

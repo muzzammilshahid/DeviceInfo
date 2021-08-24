@@ -43,10 +43,10 @@ public class DisplayFragment extends Fragment {
         xdpi = view.findViewById(R.id.xdpi);
         ydpi = view.findViewById(R.id.ydpi);
 
-        width.setText("" + getResources().getDisplayMetrics().widthPixels);
-        height.setText("" + getResources().getDisplayMetrics().heightPixels);
+        width.setText(getResources().getDisplayMetrics().widthPixels + "");
+        height.setText(getResources().getDisplayMetrics().heightPixels + "");
         scaledDensity.setText(getResources().getDisplayMetrics().scaledDensity + "");
-        densityDpi.setText("" + getResources().getDisplayMetrics().densityDpi);
+        densityDpi.setText(getResources().getDisplayMetrics().densityDpi + "");
         xdpi.setText(getResources().getDisplayMetrics().xdpi + "");
         ydpi.setText(getResources().getDisplayMetrics().scaledDensity + "");
 

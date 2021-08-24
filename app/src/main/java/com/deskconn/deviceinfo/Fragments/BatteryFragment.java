@@ -7,14 +7,12 @@ import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.deskconn.deviceinfo.R;
 
@@ -52,7 +50,6 @@ public class BatteryFragment extends Fragment {
         voltageTv = view.findViewById(R.id.tv_voltage);
         capacityTv = view.findViewById(R.id.tv_capacity);
 
-
         loadBatterySection();
         return view;
     }
@@ -63,7 +60,7 @@ public class BatteryFragment extends Fragment {
         intentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
 
-        getActivity().registerReceiver(batteryInfoReceiver, intentFilter);
+        requireActivity().registerReceiver(batteryInfoReceiver, intentFilter);
     }
 
     private BroadcastReceiver batteryInfoReceiver = new BroadcastReceiver() {
@@ -112,7 +109,7 @@ public class BatteryFragment extends Fragment {
 
             if (healthLbl != -1) {
                 // display battery health ...
-                healthTv.setText("" + getString(healthLbl));
+                healthTv.setText(getString(healthLbl));
             }
 
             // Calculate Battery Percentage ...
@@ -146,7 +143,7 @@ public class BatteryFragment extends Fragment {
             }
 
             // display plugged status ...
-            pluggedTv.setText("" + getString(pluggedLbl));
+            pluggedTv.setText(getString(pluggedLbl));
 
             int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
             int statusLbl = R.string.battery_status_discharging;
@@ -175,14 +172,14 @@ public class BatteryFragment extends Fragment {
             }
 
             if (statusLbl != -1) {
-                chargingStatusTv.setText("" + getString(statusLbl));
+                chargingStatusTv.setText(getString(statusLbl));
             }
 
             if (intent.getExtras() != null) {
                 String technology = intent.getExtras().getString(BatteryManager.EXTRA_TECHNOLOGY);
 
                 if (!"".equals(technology)) {
-                    technologyTv.setText("" + technology);
+                    technologyTv.setText(technology);
                 }
             }
 
@@ -190,23 +187,23 @@ public class BatteryFragment extends Fragment {
 
             if (temperature > 0) {
                 float temp = ((float) temperature) / 10f;
-                tempTv.setText("" + temp + "°C");
+                tempTv.setText(temp + "°C");
             }
 
             int voltage = intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, 0);
 
             if (voltage > 0) {
-                voltageTv.setText("" + voltage + " mV");
+                voltageTv.setText(voltage + " mV");
             }
 
             long capacity = getBatteryCapacity(getActivity());
 
             if (capacity > 0) {
-                capacityTv.setText("" + capacity + " mAh");
+                capacityTv.setText(capacity + " mAh");
             }
 
         } else {
-            Toast.makeText(getContext(), "No Battery present", Toast.LENGTH_SHORT).show();
+            System.out.println("No battery present");
         }
 
     }
@@ -225,4 +222,18 @@ public class BatteryFragment extends Fragment {
 
         return 0;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadBatterySection();
+    }
+
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        requireActivity().unregisterReceiver(batteryInfoReceiver);
+    }
+
 }

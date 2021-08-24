@@ -42,6 +42,40 @@
         android:background="@color/mustard" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/black"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingVertical="7dp"
+            android:paddingStart="20dp"
+            android:paddingLeft="20dp"
+            android:text="MAC Address"
+            android:textColor="@color/mustard"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/mac_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="7dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
+            android:textColor="@color/mustard"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mustard" />
+
+    <LinearLayout
         android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

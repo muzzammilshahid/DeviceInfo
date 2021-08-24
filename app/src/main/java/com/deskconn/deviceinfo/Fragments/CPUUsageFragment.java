@@ -84,7 +84,7 @@ public class CPUUsageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_cpu_usage, container, false);
-        SensorManager mSensorManager = (SensorManager) getActivity().getSystemService(SENSOR_SERVICE);
+        SensorManager mSensorManager = (SensorManager) requireActivity().getSystemService(SENSOR_SERVICE);
         Sensor TempSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
         mSensorManager.registerListener(temperatureSensor, TempSensor, SensorManager.SENSOR_DELAY_NORMAL);
         keepReading = true;
@@ -113,7 +113,6 @@ public class CPUUsageFragment extends Fragment {
             public void run() {
                 try {
                     while (keepReading) {
-                        Thread.sleep(1000);
                         mainActivity.runOnUiThread(() -> {
 
                             if (cpu0file.exists()) {
@@ -148,7 +147,6 @@ public class CPUUsageFragment extends Fragment {
                                 File f = new File(file);
                                 if (f.exists()) {
                                     correctSensorFile = f;
-                                    System.out.println("millo  " + correctSensorFile);
                                     break;
                                 }
                             }
@@ -163,10 +161,21 @@ public class CPUUsageFragment extends Fragment {
                                 foo = Integer.parseInt(String.valueOf(temp));
                                 reader.close();
                             } catch (Exception e) {
-                                e.printStackTrace();
+                                double maxCapacity = Double.parseDouble(formatCPUFreq(ReadCPU0(maxFreq)));
+                                double usage = (Double.parseDouble(formatCPUFreq(ReadCPU0(cpu0)))
+                                        + Double.parseDouble(formatCPUFreq(ReadCPU0(cpu1)))
+                                        + Double.parseDouble(formatCPUFreq(ReadCPU0(cpu2)))
+                                        + Double.parseDouble(formatCPUFreq(ReadCPU0(cpu2)))) / 4;
+                                double percentage = (usage / maxCapacity) * 60;
+                                String temp = "" + percentage;
+                                if (temp.length() > 4) {
+                                    tv_cputemp.setText(temp.substring(0, 5));
+                                } else {
+                                    tv_cputemp.setText(temp);
+                                }
                             }
-
                         });
+                        Thread.sleep(2000);
                     }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -193,14 +202,13 @@ public class CPUUsageFragment extends Fragment {
             byte[] re = new byte[1024];
             while (in.read(re) != -1) //default -1
             {
-                //System.out.println(new String(re));
+
                 result = new String(re);
             }
             in.close();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        System.out.println("millis " + result);
         return result;
     }
 
@@ -218,9 +226,9 @@ public class CPUUsageFragment extends Fragment {
 
         @Override
         public void onSensorChanged(SensorEvent event) {
-            System.out.println("on sensor changed called");
+
             float temp = event.values[0];
-            System.out.println("Temperature sensor: " + temp);
+
         }
 
         @Override
@@ -232,7 +240,7 @@ public class CPUUsageFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        keepReading = false;
+        keepReading = false;
     }
 
 
@@ -242,13 +250,11 @@ public class CPUUsageFragment extends Fragment {
         keepReading = true;
     }
 
-    public void onStop() {
-        super.onStop();
-        keepReading = false;      //don't disable otherwise stops reading after going to sleep
-    }
-
+    @Override
     public void onResume() {
         super.onResume();
         keepReading = true;
     }
+
+
 }

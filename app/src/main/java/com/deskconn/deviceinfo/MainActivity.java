@@ -10,24 +10,16 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
 
-import com.deskconn.deviceinfo.ui.main.SectionsPagerAdapter;
-import com.deskconn.deviceinfo.R;
 import com.deskconn.deviceinfo.databinding.ActivityMainBinding;
+import com.deskconn.deviceinfo.ui.main.SectionsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    public static ArrayList<AppInfo> list1 = new ArrayList<>();
-
-    private ImageView imageView;
-
     private DrawerLayout dLayout;
     private TabLayout tabs;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +34,9 @@ public class MainActivity extends AppCompatActivity {
         tabs = binding.tabs;
         tabs.setupWithViewPager(viewPager);
 
-        imageView = findViewById(R.id.imageView);
+        ImageView imageView = findViewById(R.id.imageView);
         dLayout = findViewById(R.id.drawerLayout);
+
         imageView.setOnClickListener(v -> {
             dLayout.openDrawer(GravityCompat.START);
         });

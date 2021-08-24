@@ -26,7 +26,7 @@ public class NetworkFragment extends Fragment {
     TextView receivedByteTextView;
     ConnectivityManager connMgr;
 
-    private Handler mHandler = new Handler();
+    private final Handler mHandler = new Handler();
     private long mStartRX = 0;
     private long mStartTX = 0;
 
@@ -49,7 +49,7 @@ public class NetworkFragment extends Fragment {
         mobileDataTextView = view.findViewById(R.id.mobile_data);
         transmitByteTextView = view.findViewById(R.id.transmit);
         receivedByteTextView = view.findViewById(R.id.received);
-        connMgr = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        connMgr = (ConnectivityManager) requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
 
         mStartRX = TrafficStats.getTotalRxBytes();

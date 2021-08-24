@@ -6,6 +6,12 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.29333333333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.29333333333333333" />
         <entry key="app/src/main/res/drawable/ic_menu.xml" value="0.29333333333333333" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1484375" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_app.xml" value="0.1484375" />
+        <entry key="app/src/main/res/layout/fragment_background.xml" value="0.1484375" />
+        <entry key="app/src/main/res/layout/fragment_battery.xml" value="0.1484375" />
+        <entry key="app/src/main/res/layout/fragment_cpu_usage.xml" value="0.28177083333333336" />
         <entry key="app/src/main/res/layout/fragment_device.xml" value="0.262037037037037" />
         <entry key="app/src/main/res/layout/fragment_display.xml" value="0.262037037037037" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.262037037037037" />

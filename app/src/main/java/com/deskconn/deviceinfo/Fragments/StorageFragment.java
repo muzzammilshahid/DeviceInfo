@@ -1,10 +1,9 @@
 package com.deskconn.deviceinfo.Fragments;
 
+import static android.content.Context.ACTIVITY_SERVICE;
+
 import android.app.ActivityManager;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.os.Environment;
 import android.os.StatFs;
 import android.view.LayoutInflater;
@@ -13,21 +12,14 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.deskconn.deviceinfo.R;
 
-import static android.content.Context.ACTIVITY_SERVICE;
+import java.io.File;
 
 
 public class StorageFragment extends Fragment {
-
-    private TextView totalRam;
-    private TextView availRam;
-    private TextView totalStorage;
-    private TextView availStorage;
-    private TextView percentageAvailableStorage;
-    private TextView percentageAvailableRam;
-    private ProgressBar progressBar;
-    private ProgressBar progressBar1;
 
     public StorageFragment() {
         // Required empty public constructor
@@ -43,51 +35,85 @@ public class StorageFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_storage, container, false);
-        totalRam = view.findViewById(R.id.ram_total);
-        availRam = view.findViewById(R.id.ram_avail);
-        totalStorage = view.findViewById(R.id.storage_total);
-        availStorage = view.findViewById(R.id.storage_avail);
-        percentageAvailableRam = view.findViewById(R.id.ram_avail_percentage);
-        percentageAvailableStorage = view.findViewById(R.id.storage_avail_percentage);
-        progressBar = view.findViewById(R.id.progress);
-        progressBar1 = view.findViewById(R.id.progress1);
+        TextView totalRam = view.findViewById(R.id.ram_total);
+        TextView availRam = view.findViewById(R.id.ram_avail);
+        TextView totalStorage = view.findViewById(R.id.storage_total);
+        TextView availStorage = view.findViewById(R.id.storage_avail);
+        TextView percentageAvailableRam = view.findViewById(R.id.ram_avail_percentage);
+        TextView percentageAvailableStorage = view.findViewById(R.id.storage_avail_percentage);
+        ProgressBar progressBar = view.findViewById(R.id.progress);
+        ProgressBar progressBar1 = view.findViewById(R.id.progress1);
 
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
-        ActivityManager activityManager = (ActivityManager) getActivity().getSystemService(ACTIVITY_SERVICE);
+        ActivityManager activityManager = (ActivityManager) requireActivity().getSystemService(ACTIVITY_SERVICE);
         activityManager.getMemoryInfo(mi);
 
-        double availableGb = (mi.availMem / 0x100000L) / 1024;
-        double totalGb = (mi.totalMem / 0x100000L) / 1024;
+        int availableGb = (int) (mi.availMem / 0x100000L);
+        int totalGb = (int) (mi.totalMem / 0x100000L);
 
-        //Percentage can be calculated for API 16+
         int percentAvail = 100 - (int) (mi.availMem / (double) mi.totalMem * 100.0);
-        totalRam.setText(totalGb + "");
-        availRam.setText(availableGb + "");
+        totalRam.setText(totalGb + " MiB");
+        availRam.setText(availableGb + " MiB");
         percentageAvailableRam.setText(percentAvail + "%");
         progressBar.setProgress(percentAvail);
 
 
         StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
-        long bytesAvailable, totalBytes;
+        double bytesAvailable, totalBytes;
         if (android.os.Build.VERSION.SDK_INT >=
                 android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
             bytesAvailable = stat.getBlockSizeLong() * stat.getAvailableBlocksLong();
             totalBytes = stat.getBlockSizeLong() * stat.getBlockCountLong();
         } else {
-            bytesAvailable = (long) stat.getBlockSize() * (long) stat.getAvailableBlocks();
-            totalBytes = (long) stat.getBlockSize() * (long) stat.getBlockCount();
+            bytesAvailable = stat.getBlockSize() * stat.getAvailableBlocks();
+            totalBytes = stat.getBlockSize() * stat.getBlockCount();
         }
         double gbAvailable = bytesAvailable / (1024 * 1024 * 1024);
         double gbTotal = totalBytes / (1024 * 1024 * 1024);
+
         int percentageAvail = 100 - (int) (gbAvailable / gbTotal * 100.0);
 
-        totalStorage.setText(gbTotal + "");
-        availStorage.setText(gbAvailable + "");
+        totalStorage.setText(formatSize(getTotalInternalMemorySize()));
+        availStorage.setText(formatSize(getAvailableInternalMemorySize()));
         percentageAvailableStorage.setText(percentageAvail + "%");
         progressBar1.setProgress(percentageAvail);
 
 
         return view;
 
+    }
+
+    static public double getAvailableInternalMemorySize() {
+        File path = Environment.getDataDirectory();
+        StatFs stat = new StatFs(path.getPath());
+        double blockSize = stat.getBlockSize();
+        double availableBlocks = stat.getAvailableBlocks();
+        return availableBlocks * blockSize;
+    }
+
+    static public long getTotalInternalMemorySize() {
+        File path = Environment.getDataDirectory();
+        StatFs stat = new StatFs(path.getPath());
+        long blockSize = stat.getBlockSize();
+        long totalBlocks = stat.getBlockCount();
+        return totalBlocks * blockSize;
+    }
+
+
+    public String formatSize(double size) {
+
+        if (size >= 1024) {
+            size /= 1024;
+            if (size >= 1024) {
+                size /= 1024;
+                if ((size >= 1024)) {
+                    size /= 1024;
+                }
+            }
+        }
+
+        String sizeString = "" + size;
+
+        return sizeString.substring(0, 5) + " GiB";
     }
 }
