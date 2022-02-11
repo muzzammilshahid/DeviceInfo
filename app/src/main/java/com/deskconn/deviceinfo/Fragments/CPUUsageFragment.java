@@ -161,18 +161,7 @@ public class CPUUsageFragment extends Fragment {
                                 foo = Integer.parseInt(String.valueOf(temp));
                                 reader.close();
                             } catch (Exception e) {
-                                double maxCapacity = Double.parseDouble(formatCPUFreq(ReadCPU0(maxFreq)));
-                                double usage = (Double.parseDouble(formatCPUFreq(ReadCPU0(cpu0)))
-                                        + Double.parseDouble(formatCPUFreq(ReadCPU0(cpu1)))
-                                        + Double.parseDouble(formatCPUFreq(ReadCPU0(cpu2)))
-                                        + Double.parseDouble(formatCPUFreq(ReadCPU0(cpu2)))) / 4;
-                                double percentage = (usage / maxCapacity) * 60;
-                                String temp = "" + percentage;
-                                if (temp.length() > 4) {
-                                    tv_cputemp.setText(temp.substring(0, 5));
-                                } else {
-                                    tv_cputemp.setText(temp);
-                                }
+                                e.printStackTrace();
                             }
                         });
                         Thread.sleep(2000);
@@ -219,7 +208,7 @@ public class CPUUsageFragment extends Fragment {
         if (m.find()) {
             uwot = m.group(0);
             return uwot.substring(0, uwot.length() - 3);
-        } else return "Error";
+        } else return "N/A";
     }
 
     private SensorEventListener temperatureSensor = new SensorEventListener() {
