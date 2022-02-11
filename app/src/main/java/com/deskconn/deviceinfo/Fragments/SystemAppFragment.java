@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.deskconn.deviceinfo.Adapter.SystemAppAdapter;
 import com.deskconn.deviceinfo.AppInfo;
+import com.deskconn.deviceinfo.MainActivity;
 import com.deskconn.deviceinfo.R;
-import com.deskconn.deviceinfo.SplashScreen;
 
 public class SystemAppFragment extends Fragment {
     ListView appNameListView;
@@ -37,12 +37,12 @@ public class SystemAppFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_background, container, false);
         appNameListView = view.findViewById(R.id.listview_apps);
 
-        systemAppAdapter = new SystemAppAdapter(requireActivity(), SplashScreen.listSystemApps);
+        systemAppAdapter = new SystemAppAdapter(requireActivity(), MainActivity.listSystemApps);
 
         appNameListView.setAdapter(systemAppAdapter);
 
         appNameListView.setOnItemClickListener((parent, view1, position, id) -> {
-            AppInfo appInfo = SplashScreen.listSystemApps.get(position);
+            AppInfo appInfo = MainActivity.listSystemApps.get(position);
             Intent intent1 = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
             Uri uri = Uri.fromParts("package", appInfo.getPackageName(), null);
             intent1.setData(uri);

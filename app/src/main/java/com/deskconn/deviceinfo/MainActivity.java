@@ -1,11 +1,18 @@
 package com.deskconn.deviceinfo;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.splashscreen.SplashScreen;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -14,6 +21,11 @@ import com.deskconn.deviceinfo.databinding.ActivityMainBinding;
 import com.deskconn.deviceinfo.ui.main.SectionsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -21,12 +33,32 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout dLayout;
     private TabLayout tabs;
 
+    public static ArrayList<AppInfo> listUserApps = new ArrayList<>();
+
+    public static ArrayList<AppInfo> listSystemApps = new ArrayList<>();
+
+    private boolean keep = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        androidx.core.splashscreen.SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
+
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        splashScreen.setKeepOnScreenCondition(() -> keep);
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+        executor.execute(() -> {
+            getAllApps();
+            handler.post(() -> {
+                keep = false;
+            });
+        });
 
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
@@ -104,4 +136,49 @@ public class MainActivity extends AppCompatActivity {
             dLayout.closeDrawers(); // close the all open Drawer Views
         }
     }
+
+    public ArrayList<AppInfo> getAllApps() {
+
+        PackageManager pm = getPackageManager();
+        List<ApplicationInfo> installedApps = pm.getInstalledApplications(0);
+        for (ApplicationInfo aInfo : installedApps) {
+
+            if ((aInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                // System apps
+                AppInfo appInfo = new AppInfo();
+                appInfo.setAppName(aInfo.loadLabel(pm).toString());
+                appInfo.setPackageName(aInfo.packageName);
+                try {
+                    PackageInfo info = pm.getPackageInfo(aInfo.packageName, 0);
+                    appInfo.setVersionName(info.versionName);
+                    appInfo.setVersionCode(info.versionCode);
+                    appInfo.setAppName(info.applicationInfo.loadLabel(getPackageManager()).toString());
+                    appInfo.setIcon(info.applicationInfo.loadIcon(getPackageManager()));
+                    listSystemApps.add(appInfo);
+                } catch (Exception e) {
+                    Log.e("ERROR", "we could not get the user's apps");
+                }
+            } else {
+                // Users apps
+                AppInfo appInfo = new AppInfo();
+                appInfo.setAppName(aInfo.loadLabel(pm).toString());
+                appInfo.setPackageName(aInfo.packageName);
+                try {
+                    PackageInfo info = pm.getPackageInfo(aInfo.packageName, 0);
+                    appInfo.setVersionName(info.versionName);
+                    appInfo.setVersionCode(info.versionCode);
+                    appInfo.setAppName(info.applicationInfo.loadLabel(getPackageManager()).toString());
+                    appInfo.setIcon(info.applicationInfo.loadIcon(getPackageManager()));
+                    listUserApps.add(appInfo);
+                } catch (Exception e) {
+                    Log.e("ERROR", "we could not get the user's apps");
+                }
+
+            }
+
+        }
+
+        return listSystemApps;
+    }
+
 }

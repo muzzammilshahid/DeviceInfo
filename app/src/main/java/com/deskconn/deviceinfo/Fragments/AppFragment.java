@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.deskconn.deviceinfo.Adapter.AppAdapter;
 import com.deskconn.deviceinfo.AppInfo;
+import com.deskconn.deviceinfo.MainActivity;
 import com.deskconn.deviceinfo.R;
-import com.deskconn.deviceinfo.SplashScreen;
 
 public class AppFragment extends Fragment {
 
@@ -42,12 +42,12 @@ public class AppFragment extends Fragment {
 
         appNameListView = view.findViewById(R.id.listview_apps);
 
-        appAdapter = new AppAdapter(requireActivity(), SplashScreen.listUserApps);
+        appAdapter = new AppAdapter(requireActivity(), MainActivity.listUserApps);
 
         appNameListView.setAdapter(appAdapter);
 
         appNameListView.setOnItemClickListener((parent, view1, position, id) -> {
-            AppInfo appInfo = SplashScreen.listUserApps.get(position);
+            AppInfo appInfo = MainActivity.listUserApps.get(position);
             Intent intent1 = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
             Uri uri = Uri.fromParts("package", appInfo.getPackageName(), null);
             intent1.setData(uri);
