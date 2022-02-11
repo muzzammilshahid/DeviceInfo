@@ -11,8 +11,8 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_gravity="center"
             android:layout_marginVertical="30dp"
             android:src="@drawable/ic_icon" />
@@ -26,6 +26,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickHome"
             android:orientation="horizontal">
@@ -41,17 +42,18 @@
                 android:textColor="@color/mustard"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-        </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_home" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickNetwork"
             android:orientation="horizontal">
@@ -68,17 +70,18 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_network" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickDisplay"
             android:orientation="horizontal">
@@ -95,17 +98,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_display" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickBattery"
             android:orientation="horizontal">
@@ -122,17 +125,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_battery" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickApps"
             android:orientation="horizontal">
@@ -149,17 +152,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_user" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickSystemApps"
             android:orientation="horizontal">
@@ -176,17 +179,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_system" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickCPU"
             android:orientation="horizontal">
@@ -203,17 +206,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_cpu" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickStorage"
             android:orientation="horizontal">
@@ -230,17 +233,18 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-        </LinearLayout>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_storage" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickDevice"
             android:orientation="horizontal">
@@ -257,17 +261,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_device" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/linear_background"
             android:gravity="center_vertical"
             android:onClick="ClickShareApp"
             android:orientation="horizontal">
@@ -284,13 +288,12 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/ic_share" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
-            android:background="@color/mustard" />
 
     </LinearLayout>
 
