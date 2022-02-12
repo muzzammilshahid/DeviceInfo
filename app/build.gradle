@@ -42,4 +42,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
 
     implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
+
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
+
 }

@@ -19,6 +19,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.deskconn.deviceinfo.databinding.ActivityMainBinding;
 import com.deskconn.deviceinfo.ui.main.SectionsPagerAdapter;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -39,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean keep = true;
 
+    private AdView adView;
+
+    private AdView adView1;
+
+    public AdRequest adRequest;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,15 +58,21 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        adRequest = new AdRequest.Builder().build();
+
+        adView = binding.adView;
+        adView1 = binding.adView1;
+
+        adView.loadAd(adRequest);
+        adView1.loadAd(adRequest);
+
         splashScreen.setKeepOnScreenCondition(() -> keep);
 
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
         executor.execute(() -> {
             getAllApps();
-            handler.post(() -> {
-                keep = false;
-            });
+            handler.post(() -> keep = false);
         });
 
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
